@@ -3,9 +3,17 @@
   "version": "0.1.0",
   "description": "",
   "keywords": [],
+  "homepage": "https://github.com/amokrushin/wpkfg#readme",
+  "bugs": {
+    "url": "https://github.com/amokrushin/wpkfg/issues"
+  },
   "license": "MIT",
   "author": "Anton Mokrushin <anton@mokr.org>",
   "main": "webpack.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amokrushin/wpkfg.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -40,5 +48,6 @@
     "webpack-dashboard": "^0.4.0",
     "webpack-dev-server": "^2.5.1",
     "webpack-merge": "^4.1.0"
-  }
+  },
+  "devDependencies": {}
 }
