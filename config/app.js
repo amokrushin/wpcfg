@@ -1,21 +1,40 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
+const boolean = require('boolean');
 
-module.exports = {
-    plugins: [
+const {
+    APP_NAME,
+    WP_INDEX = true,
+} = process.env;
+
+const plugins = [
+    new HtmlWebpackPlugin({
+        template: 'src/index.ejs',
+        filename: `${APP_NAME}.index.html`,
+        alwaysWriteToDisk: true,
+        env: process.env,
+    }),
+    new HtmlWebpackHarddiskPlugin(),
+    new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery',
+        'window.jQuery': 'jquery',
+        Tether: 'tether',
+    }),
+];
+
+if (boolean(WP_INDEX)) {
+    plugins.push(
         new HtmlWebpackPlugin({
             template: 'src/index.ejs',
             filename: '../index.html',
             alwaysWriteToDisk: true,
-            env: {},
+            env: process.env,
         }),
-        new HtmlWebpackHarddiskPlugin(),
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery',
-            'window.jQuery': 'jquery',
-            Tether: 'tether',
-        }),
-    ],
+    );
+}
+
+module.exports = {
+    plugins,
 };
