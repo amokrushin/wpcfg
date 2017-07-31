@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 
-const { APP_ORIGIN, WDS_BASE_DIR, WDS_PORT, WDS_HOST } = process.env;
+const { APP_ORIGIN, WDS_BASE_DIR, WDS_PORT, WDS_HOST, WDS_HMR = true } = process.env;
 
 module.exports = {
     devServer: {
@@ -11,6 +11,7 @@ module.exports = {
         host: WDS_HOST,
         stats: { chunks: false },
         public: APP_ORIGIN.replace(/^https?:\/\//, ''),
+        hot: WDS_HMR,
     },
     plugins: [
         new webpack.NamedModulesPlugin(),
