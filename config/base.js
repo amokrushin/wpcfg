@@ -11,6 +11,7 @@ const {
     BUILD_DIR,
     BUILD_PATH,
     WPK_DEVTOOL,
+    WPK_EXTRACT_RUNTIME = true,
 } = process.env;
 
 const config = {
@@ -74,10 +75,7 @@ const config = {
             VUE_DEVTOOLS: NODE_ENV === 'development',
             VUEX_STRICT: NODE_ENV === 'development',
         }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'webpack-runtime',
-            minChunks: Infinity,
-        }),
+
         new CleanWebpackPlugin([BUILD_DIR], {
             root: PUBLIC_DIR,
             verbose: true,
@@ -93,5 +91,14 @@ const config = {
     ],
     devtool: WPK_DEVTOOL || false,
 };
+
+if (WPK_EXTRACT_RUNTIME) {
+    config.plugins.push(
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'webpack-runtime',
+            minChunks: Infinity,
+        })
+    );
+}
 
 module.exports = config;
