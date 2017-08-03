@@ -22,6 +22,7 @@ const BUILD_PATH = `${env.BUILD_PATH || env.PUBLIC_PATH || PUBLIC_PATH}/build/`;
 const WDS_BASE_DIR = env.PUBLIC_DIR || PUBLIC_DIR;
 const WDS_HOST = url.parse(env.APP_ORIGIN || APP_ORIGIN).hostname;
 const WDS_PORT = url.parse(env.APP_ORIGIN || APP_ORIGIN).port;
+const WPK_EXTRACT_RUNTIME = true;
 
 const envDefaults = {
     APP_ORIGIN,
@@ -35,6 +36,7 @@ const envDefaults = {
     WDS_BASE_DIR,
     WDS_HOST,
     WDS_PORT,
+    WPK_EXTRACT_RUNTIME,
 };
 
 defaults(env, envDefaults);

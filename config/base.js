@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const { UnusedFilesWebpackPlugin } = require('unused-files-webpack-plugin');
 const path = require('path');
+const boolean = require('boolean');
 
 const {
     APP_NAME,
@@ -11,7 +12,7 @@ const {
     BUILD_DIR,
     BUILD_PATH,
     WPK_DEVTOOL,
-    WPK_EXTRACT_RUNTIME = true,
+    WPK_EXTRACT_RUNTIME,
 } = process.env;
 
 const config = {
@@ -87,7 +88,7 @@ const config = {
     devtool: WPK_DEVTOOL || false,
 };
 
-if (WPK_EXTRACT_RUNTIME) {
+if (boolean(WPK_EXTRACT_RUNTIME)) {
     config.plugins.push(
         new webpack.optimize.CommonsChunkPlugin({
             name: 'webpack-runtime',
