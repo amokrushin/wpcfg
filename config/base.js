@@ -71,11 +71,6 @@ const config = {
         new webpack.EnvironmentPlugin({
             NODE_ENV,
         }),
-        new webpack.EnvironmentPlugin({
-            VUE_DEVTOOLS: NODE_ENV === 'development',
-            VUEX_STRICT: NODE_ENV === 'development',
-        }),
-
         new CleanWebpackPlugin([BUILD_DIR], {
             root: PUBLIC_DIR,
             verbose: true,
