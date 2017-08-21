@@ -12,6 +12,7 @@ const config = {
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: [
+                        { loader: 'css-loader', options: { importLoaders: 1 } },
                         { loader: 'postcss-loader' },
                     ],
                 }),
@@ -21,6 +22,7 @@ const config = {
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: [
+                        { loader: 'css-loader', options: { importLoaders: 1 } },
                         { loader: 'postcss-loader' },
                         { loader: 'sass-loader' },
                     ],
