@@ -59,7 +59,7 @@ const config = {
                 loader: `file-loader?name=${APP_NAME}.[hash].[ext]`,
             },
             {
-                test: /\.(eot|svg|ttf|woff|woff2)$/,
+                test: /\.(eot|svg|ttf|woff2?)(\?\S*)?$/,
                 loader: `file-loader?name=${APP_NAME}.[hash].[ext]`,
             },
             {
