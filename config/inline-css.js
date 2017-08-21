@@ -13,7 +13,7 @@ const config = {
                 test: /\.scss$/,
                 use: [
                     { loader: 'style-loader' },
-                    { loader: 'css-loader', options: { importLoaders: 1 } },
+                    { loader: 'css-loader', options: { importLoaders: 2 } },
                     { loader: 'postcss-loader' },
                     { loader: 'sass-loader' },
                 ],
