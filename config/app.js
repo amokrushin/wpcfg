@@ -16,12 +16,6 @@ const plugins = [
         env: process.env,
     }),
     new HtmlWebpackHarddiskPlugin(),
-    new webpack.ProvidePlugin({
-        $: 'jquery',
-        jQuery: 'jquery',
-        'window.jQuery': 'jquery',
-        Tether: 'tether',
-    }),
 ];
 
 if (boolean(WP_INDEX)) {
