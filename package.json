@@ -5,6 +5,10 @@
   "keywords": [],
   "license": "MIT",
   "author": "Anton Mokrushin <anton@mokr.org>",
+  "files": [
+    "config",
+    "webpack.config.js"
+  ],
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
