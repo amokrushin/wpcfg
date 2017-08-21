@@ -55,7 +55,7 @@ const config = {
                 ],
             },
             {
-                test: /\.jpe?g$|\.gif$|\.png$|\.svg$/,
+                test: /\.(jpg|jpeg|gif|png|svg)$/,
                 loader: `file-loader?name=${APP_NAME}.[hash].[ext]`,
             },
             {
