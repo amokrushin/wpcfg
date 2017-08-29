@@ -23,7 +23,7 @@ const config = {
     output: {
         filename: `${APP_NAME}.[name].js`,
         chunkFilename: `${APP_NAME}.[id].chunk.js`,
-        sourceMapFilename: `${APP_NAME}.[name].map`,
+        sourceMapFilename: `${APP_NAME}.[name].js.map`,
         path: path.resolve(BUILD_DIR),
         publicPath: BUILD_PATH,
     },
@@ -87,6 +87,14 @@ const config = {
     ],
     devtool: WPK_DEVTOOL || false,
 };
+
+if (NODE_ENV === 'production') {
+    config.plugins.push(
+        new webpack.optimize.UglifyJsPlugin({
+            sourceMap: Boolean(WPK_DEVTOOL),
+        }),
+    );
+}
 
 if (boolean(WPK_EXTRACT_RUNTIME)) {
     config.plugins.push(
