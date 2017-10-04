@@ -12,8 +12,8 @@ const config = {
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: [
-                        { loader: 'css-loader', options: { importLoaders: 1 } },
-                        { loader: 'postcss-loader' },
+                        { loader: 'css-loader', options: { importLoaders: 1, sourceMap: true } },
+                        { loader: 'postcss-loader', options: { sourceMap: true } },
                     ],
                 }),
             },
@@ -22,9 +22,9 @@ const config = {
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: [
-                        { loader: 'css-loader', options: { importLoaders: 2 } },
-                        { loader: 'postcss-loader' },
-                        { loader: 'sass-loader' },
+                        { loader: 'css-loader', options: { importLoaders: 2, sourceMap: true } },
+                        { loader: 'postcss-loader', options: { sourceMap: true } },
+                        { loader: 'sass-loader', options: { sourceMap: true } },
                     ],
                 }),
             },
