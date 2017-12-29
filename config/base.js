@@ -79,7 +79,7 @@ const config = {
             exclude: [],
         }),
         new UnusedFilesWebpackPlugin({
-            pattern: 'src/**/*.*',
+            patterns: 'src/**/*.*',
             globOptions: {
                 ignore: ['node_modules/**/*', '**/selection.json'],
             },
